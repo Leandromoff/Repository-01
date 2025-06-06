@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Users{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-12">
+    <h2 class="mb-3">Users</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+<table class="table table-dark table-striped table-bordered align-middle">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Admin</th>
+      <th>Active</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for username, u in users.items %}
+    <tr>
+      <td>{{ username }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.is_admin_site }}</td>
+      <td>{{ u.is_active }}</td>
+      <td>
+        {% if user.is_admin_site and username != user.username %}
+          <a href="{% url 'toggle_user_active' username=username %}" class="btn btn-dark btn-sm">Toggle</a>
+        {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% if user.is_admin_site %}
+  <a class="btn btn-dark" href="{% url 'create_user' %}">Create User</a>
+{% endif %}
+</div>
+</div>
+{% endblock %}
