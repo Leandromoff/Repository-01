@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Estude vocabulário, gramática e frases em inglês com tradução em português." />
+  <title>Tópico | English for Brazilians</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ============================
+       HEADER
+       ============================ -->
+  <header class="header">
+    <div class="header-top">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🇧🇷🇺🇸</span>
+        <div class="logo-text">
+          <h1>English for Brazilians</h1>
+          <span>Aprenda inglês do jeito certo</span>
+        </div>
+      </a>
+
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="Buscar palavra ou frase..."
+          autocomplete="off"
+        />
+        <div id="search-results" class="search-results"></div>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">☰</button>
+    </div>
+
+    <nav class="nav" aria-label="Menu principal">
+      <ul class="nav-list" id="nav-list">
+        <li><a href="index.html">📚 Topics</a></li>
+        <li><a href="index.html#vocabulary">📖 Vocabulary</a></li>
+        <li><a href="index.html#grammar">📐 Grammar</a></li>
+        <li><a href="index.html#phrases">💬 Phrases</a></li>
+        <li><a href="favorites.html">⭐ Favorites</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================
+       CONTEÚDO DO TÓPICO
+       ============================ -->
+  <main class="main-container">
+
+    <!-- Cabeçalho do tópico (preenchido pelo JS) -->
+    <div id="topic-header" class="topic-header animate-fade-in"></div>
+
+    <!-- Botões de controle (Study Mode, Quiz, Favoritos) -->
+    <div id="topic-controls" class="topic-controls"></div>
+
+    <!-- Seções de conteúdo (preenchidas pelo JS) -->
+    <div id="topic-content"></div>
+
+  </main>
+
+  <!-- ============================
+       FOOTER
+       ============================ -->
+  <footer class="footer">
+    <div class="footer-flags">🇧🇷🇺🇸</div>
+    <p>English for Brazilians &mdash; Aprenda inglês do jeito certo</p>
+    <p style="margin-top:4px; font-size:0.8rem; opacity:0.5;">
+      Feito com ❤️ para estudantes brasileiros
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/favorites.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

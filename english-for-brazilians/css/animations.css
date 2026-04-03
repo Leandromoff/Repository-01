@@ -1,0 +1,153 @@
+/* ============================================
+   animations.css - Animações do site
+   English for Brazilians
+   ============================================ */
+
+/* --- Animação de entrada (fade in de baixo para cima) --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Classes de animação --- */
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease forwards;
+}
+
+.animate-pop-in {
+  animation: popIn 0.4s ease forwards;
+}
+
+.animate-shake {
+  animation: shake 0.4s ease;
+}
+
+.animate-pulse {
+  animation: pulse 0.3s ease;
+}
+
+/* Delays para animações em sequência (cards) */
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.1s; }
+.delay-3 { animation-delay: 0.15s; }
+.delay-4 { animation-delay: 0.2s; }
+.delay-5 { animation-delay: 0.25s; }
+.delay-6 { animation-delay: 0.3s; }
+.delay-7 { animation-delay: 0.35s; }
+.delay-8 { animation-delay: 0.4s; }
+.delay-9 { animation-delay: 0.45s; }
+.delay-10 { animation-delay: 0.5s; }
+
+/* --- Transição suave de hover nos cards --- */
+.topic-card,
+.flashcard-front,
+.btn {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- Animação de flip do flashcard --- */
+.flashcard {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Animação suave do progresso --- */
+.progress-fill {
+  transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- Resposta correta/incorreta no quiz --- */
+.quiz-option.correct {
+  animation: popIn 0.3s ease;
+}
+
+.quiz-option.incorrect {
+  animation: shake 0.4s ease;
+}
+
+/* --- Efeito ripple nos botões --- */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: width 0.3s, height 0.3s;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* --- Reduz animações para quem prefere --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
